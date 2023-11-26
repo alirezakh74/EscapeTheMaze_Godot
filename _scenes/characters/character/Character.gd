@@ -17,7 +17,7 @@ func move(dir):
 	
 	can_move = false
 	$AnimationPlayer.play(facing)
-	$MoveTween.interpolate_property(self, "position", position, position + moves[facing] * tile_size, 1.0 / speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	$MoveTween.interpolate_property(self, "position", position, position + moves[facing] * tile_size, 1.0 / speed, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$MoveTween.start()
 	return true
 	

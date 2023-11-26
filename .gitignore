@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # exports
 Builds/
+
+# other libs from github
+GodotRetro/

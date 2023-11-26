@@ -11,13 +11,22 @@ config_version=4
 [application]
 
 config/name="escape_the_maze"
-run/main_scene="res://_scenes/maps/level_1/Level1.tscn"
+run/main_scene="res://_scenes/screens/StartScreen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+
+[global]
+
+debug=false
+Visible=false
 
 [gui]
 
