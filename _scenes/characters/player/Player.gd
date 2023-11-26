@@ -6,10 +6,9 @@ signal grabbed_key
 signal win
 
 
-#func _ready():
-	#$Sprite.scale = Vector2(1, 1)
-	#$Sprite.rotation = 0
-#	pass
+func _ready():
+	$Sprite.scale = Vector2(1, 1)
+	$Sprite.rotation = 0
 
 
 func _process(delta):

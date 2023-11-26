@@ -1,7 +1,7 @@
 extends Control
 
 func _input(event):
-	if event.is_action_pressed("ui_select"):
+	if event.is_action_pressed("ui_accept"):
 		Global.new_game()
 
 
@@ -11,5 +11,5 @@ func _ready():
 	else:
 		if not $ScoreNotice.is_visible_in_tree():
 			$ScoreNotice.show()
-		$ScoreNotice.text = "High Score: " + str(Global.highscore)
+		$ScoreNotice.text = Global.cast_to_persian_number(Global.highscore) + " :ﺯﺎﯿﺘﻣﺍ ﻦﯾﺮﺗﻻﺎﺑ"
 

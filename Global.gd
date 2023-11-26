@@ -55,3 +55,35 @@ func next_level():
 		game_over() # no more levels to load
 	else:
 		get_tree().change_scene(levels[current_level])
+
+func cast_to_persian_number(value : int):
+	var finalStr : String = ""
+	var myStr : String = str(value)
+	var myChars : Array = []
+	for c in myStr:
+		myChars.push_back(c)
+	for mychar in myChars:
+		if mychar == "0":
+			finalStr += "٠"
+		if mychar == "1":
+			finalStr += "١"
+		if mychar == "2":
+			finalStr += "٢"
+		if mychar == "3":
+			finalStr += "٣"
+		if mychar == "4":
+			finalStr += "۴"
+		if mychar == "5":
+			finalStr += "٥"
+		if mychar == "6":
+			finalStr += "٦"
+		if mychar == "7":
+			finalStr += "٧"
+		if mychar == "8":
+			finalStr += "٨"
+		if mychar == "9":
+			finalStr += "٩"
+	#print(finalStr)
+	return finalStr
+
+
