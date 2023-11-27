@@ -16,7 +16,10 @@ func _process(delta):
 		for dir in moves.keys():
 			if Input.is_action_pressed(dir):
 				if move(dir):
+					$FootstepsSound.play()
 					emit_signal("moved")
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://_scenes/screens/StartScreen.tscn")
 
 
 func _on_Player_area_entered(area):
@@ -25,6 +28,7 @@ func _on_Player_area_entered(area):
 		set_process(false)
 		#$CollisionShape2D.disabled = true #this not working use next line
 		$CollisionShape2D.set_deferred('disabled', true)
+		$LoseSound.play()
 		$AnimationPlayer.play("die")
 		yield($AnimationPlayer, "animation_finished")
 		emit_signal("dead")
@@ -33,4 +37,8 @@ func _on_Player_area_entered(area):
 		if area.type == "key_red":
 			emit_signal("grabbed_key")
 		if area.type == "star":
+			$WinSound.play()
+			$CollisionShape2D.set_deferred('disabled', true)
+			set_process(false)
+			yield($WinSound, "finished")
 			emit_signal("win")

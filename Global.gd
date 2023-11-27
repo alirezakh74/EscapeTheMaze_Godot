@@ -1,7 +1,7 @@
 extends Node
 
-var levels = ['res://_scenes/levels/Level1.tscn']
-#,'res://_scenes/levels/Level2.tscn']
+var levels = ['res://_scenes/levels/Level1.tscn',
+'res://_scenes/levels/Level2.tscn']
 
 var current_level
 

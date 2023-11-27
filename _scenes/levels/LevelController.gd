@@ -55,6 +55,8 @@ func game_over():
 
 
 func _on_Player_win():
+	$HUD/HideTransitionAnimationPlayer.play("transition")
+	yield($HUD/HideTransitionAnimationPlayer, "animation_finished")
 	Global.next_level()
 
 

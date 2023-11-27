@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BC_KID2.mp3-7dd5dc7ed28f8c5508d5845b9c50f6a9.mp3str"
+
+[deps]
+
+source_file="res://assets/Musics/BC_KID2.mp3"
+dest_files=[ "res://.import/BC_KID2.mp3-7dd5dc7ed28f8c5508d5845b9c50f6a9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

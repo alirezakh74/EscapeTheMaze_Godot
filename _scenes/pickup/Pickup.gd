@@ -21,7 +21,11 @@ func pickup():
 	match type:
 		'coin':
 			emit_signal('coin_pickup', 1)
-	$CollisionShape2D.disabled = true
+			$CoinPickupSound.play()
+		'key_red':
+			$KeyPickupSound.play()
+	#$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred('disabled', true)
 	#monitoring = false # act like disabled property of CollisionShape2D
 	$Tween.start()
 

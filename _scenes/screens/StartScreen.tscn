@@ -1,24 +1,169 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Vazir.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://_scenes/screens/StartScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/Backgrounds/sunnyday.png" type="Texture" id=3]
+[ext_resource path="res://assets/Musics/BC_KID2.mp3" type="AudioStream" id=4]
+[ext_resource path="res://MyTestShaders/diamond_transition.shader" type="Shader" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameTitle:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 256, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfoTitle:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 256 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ScoreNotice:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -448, 384 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "change_color"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameTitle:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 256, -320 ), Vector2( 256, -64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfoTitle:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 896, 256 ), Vector2( 64, 256 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ScoreNotice:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -768, 384 ), Vector2( 0, 384 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 5 )
+shader_param/progress = 0.0
+shader_param/diamondPixelSize = 30.0
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionHide:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "transition"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionHide:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
 [node name="StartScreen" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1048.0
+margin_bottom = 600.0
+color = Color( 0.105882, 0.533333, 0.533333, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 920.0
+margin_bottom = 472.0
+color = Color( 0.105882, 0.533333, 0.533333, 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512.267, 303.143 )
+scale = Vector2( 0.533056, 0.561376 )
+texture = ExtResource( 3 )
+
 [node name="GameTitle" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 256.0
-margin_top = 128.0
-margin_right = 693.0
-margin_bottom = 162.0
+margin_right = 879.999
+margin_bottom = 496.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "ﻩﺍﺭﺭﺍﺰﻫ ﺯﺍ ﺭﺍﺮﻓ"
 align = 1
@@ -28,10 +173,11 @@ valign = 1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 320.0
+margin_left = 1024.0
 margin_top = 236.0
-margin_right = 678.0
-margin_bottom = 310.0
+margin_right = 2062.0
+margin_bottom = 337.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "ﻥﺰﺑ ﻭﺭ ﺮﺘﻨﯾﺍ"
 align = 1
@@ -41,11 +187,44 @@ valign = 1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 320.0
+margin_left = -448.0
 margin_top = 364.0
-margin_right = 678.0
-margin_bottom = 438.0
+margin_right = 601.0
+margin_bottom = 465.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "٠ :ﺯﺎﯿﺘﻣﺍ ﻦﯾﺮﺗﻻﺎﺑ"
 align = 1
 valign = 1
+
+[node name="DeveloperInfo" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 576.0
+margin_right = 280.0
+margin_bottom = 600.0
+rect_scale = Vector2( 2, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Developed by Alireza Khoabande"
+
+[node name="ChangeTitle" type="AnimationPlayer" parent="."]
+autoplay = "change_color"
+anims/RESET = SubResource( 3 )
+anims/change_color = SubResource( 2 )
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 1.0
+
+[node name="TransitionHide" type="ColorRect" parent="."]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 984.0
+margin_bottom = 600.0
+color = Color( 0.145098, 0.494118, 0.45098, 1 )
+
+[node name="TransitionAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 6 )
+anims/transition = SubResource( 5 )

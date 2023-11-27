@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bill_and_Ted.mp3-b8b335b4a7f37fe5f7db20e7cb1d707f.mp3str"
+
+[deps]
+
+source_file="res://assets/Musics/Bill_and_Ted.mp3"
+dest_files=[ "res://.import/Bill_and_Ted.mp3-b8b335b4a7f37fe5f7db20e7cb1d707f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

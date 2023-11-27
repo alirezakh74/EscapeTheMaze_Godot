@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Vazir.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://_scenes/screens/EndScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/Backgrounds/cityskyline.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -12,6 +13,19 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
 
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512.267, 320 )
+scale = Vector2( 0.533056, 0.592593 )
+texture = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1048.0
+margin_bottom = 600.0
+color = Color( 0.356863, 0.278431, 0.278431, 1 )
+
 [node name="GameTitle" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,6 +33,7 @@ margin_left = 256.0
 margin_top = 128.0
 margin_right = 693.0
 margin_bottom = 162.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "!ﯼﺯﺎﺑ ﻥﺎﯾﺎﭘ"
 align = 1
